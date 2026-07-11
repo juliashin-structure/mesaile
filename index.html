@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MesAile — Identity, Strategy &amp; Taste by Julia Shin</title>
+<meta name="description" content="MesAile는 이미지에서 시작해 정체성, 미감, 전략과 기술을 함께 바라보는 Julia Shin의 브랜드이자 관점의 아카이브입니다.">
+<meta property="og:title" content="MesAile — Identity, Strategy & Taste by Julia Shin">
+<meta property="og:description" content="MesAile는 이미지에서 시작해 정체성, 미감, 전략과 기술을 함께 바라보는 Julia Shin의 브랜드이자 관점의 아카이브입니다.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FAF8F3">
+<!-- 실제 OG 이미지 URL로 교체 -->
+<meta property="og:image" content="">
+<!-- 실제 favicon 파일 경로로 교체 -->
+<link rel="icon" href="favicon.ico">
+
+<!-- ════════ 교체할 실제 링크/파일 목록 ════════
+  · 네이버 블로그 메인 URL            → a[data-link="blog-main"]  (Read all writing / Read the blog)
+  · 'MesAile 미즈엘르의 부활?' 글 URL → a[data-link="post-revival"]  (Read →)
+  · Julia 이메일 주소                 → a[data-link="email"]  (Contact Julia)
+  · Julia 사진 파일 경로             → .portrait 내부 <img>
+  · Instagram URL                    → a[data-link="instagram"]
+  · Open Graph 이미지 URL            → meta[property="og:image"]
+  · Favicon 파일 경로                → link[rel="icon"]
+════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+<style>
+  :root{
+    /* ── Color ── 따뜻한 모노크롬 + 네이비 포인트 */
+    --paper:#FAF8F3;
+    --paper-raised:#F3EFE7;
+    --ink:#211E1A;
+    --ink-soft:#5C574E;
+    --ink-faint:#9A948A;
+    --line:#E6E1D7;
+    --accent:#46618C;
+    --accent-hover:#324B70;
+
+    /* ── Type ── voice(세리프) / structure(산세리프) */
+    --voice:"Newsreader","Noto Serif KR",serif;
+    --structure:"Pretendard","Pretendard Variable",system-ui,sans-serif;
+
+    /* ── Spacing ── */
+    --s-2:8px; --s-3:16px; --s-4:24px; --s-6:48px;
+    --s-8:64px; --s-12:96px; --s-16:128px; --s-20:160px;
+
+    --measure:40rem;               /* 단일 컬럼 본문 폭 */
+    --wide:70rem;                  /* 2열 레이아웃 컨테이너 폭 */
+    --page-x:clamp(24px,5.5vw,56px);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--voice);
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  /* ── Navigation ── */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:var(--s-4) var(--page-x);
+    font-family:var(--structure);
+    background:transparent;
+    transition:background .5s ease, backdrop-filter .5s ease;
+  }
+  nav.settled{
+    background:color-mix(in srgb, var(--paper) 84%, transparent);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .wordmark{
+    font-family:var(--structure);
+    font-size:16px; font-weight:700; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--ink); text-decoration:none;
+  }
+  .nav-links{display:flex; gap:var(--s-4); align-items:center}
+  .nav-links a{
+    font-size:14px; font-weight:500; letter-spacing:.01em; color:var(--ink-soft);
+    text-decoration:none; transition:color .3s ease;
+  }
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.door{color:var(--accent)}
+  .nav-links a.door:hover{color:var(--accent-hover)}
+  @media (max-width:640px){
+    .nav-links{gap:var(--s-3)}
+    .nav-links a{font-size:13px}
+    .nav-links a.hide-sm{display:none}
+  }
+
+  /* ── Layout ── */
+  section{padding:var(--s-20) var(--page-x); display:flex; flex-direction:column}
+  .wrap{max-width:var(--measure); width:100%; margin:0 auto}
+  .wrap-wide{max-width:var(--wide); width:100%; margin:0 auto}
+  @media (max-width:640px){ section{padding:var(--s-16) var(--page-x)} }
+
+  /* ── Shared type ── */
+  .eyebrow{
+    font-family:var(--structure);
+    font-size:12px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:var(--s-4);
+  }
+  .title{
+    font-family:var(--voice);
+    font-size:clamp(1.7rem,3.6vw,2.5rem);
+    line-height:1.42; font-weight:400; letter-spacing:-.005em;
+  }
+  .body{font-size:clamp(1.08rem,1.9vw,1.25rem); line-height:1.85}
+  .body + .body{margin-top:var(--s-4)}
+  .soft{color:var(--ink-soft)}
+  .faint{color:var(--ink-faint)}
+
+  /* ── Hero ── */
+  .hero{min-height:100vh; justify-content:center; padding-top:var(--s-20)}
+  .hero .brandline{
+    font-family:var(--structure); margin-bottom:var(--s-8);
+    display:flex; align-items:baseline; gap:12px;
+  }
+  .hero .brandline .bm{font-size:17px; font-weight:700; letter-spacing:.14em; text-transform:uppercase}
+  .hero .brandline .by{font-size:13px; font-weight:500; letter-spacing:.04em; color:var(--ink-faint)}
+  .hero-lede{
+    font-family:var(--structure);
+    font-weight:600; letter-spacing:-.02em; line-height:1.06;
+    font-size:clamp(2.6rem,8vw,4.6rem);
+  }
+  .hero-lede span{display:block}
+  .hero-lede b{color:var(--accent); font-weight:600}
+  .hero-sub{margin-top:var(--s-8)}
+  .hero-desc{margin-top:var(--s-6); max-width:34rem}
+  .hero-link{
+    display:inline-block; margin-top:var(--s-12);
+    font-family:var(--structure); font-size:14px; font-weight:500;
+    letter-spacing:.02em; color:var(--accent); text-decoration:none;
+    transition:gap .3s ease, color .3s ease;
+  }
+  .hero-link:hover{color:var(--accent-hover)}
+
+  /* ── Why MesAile ── */
+  .emphasis{
+    margin-top:var(--s-12);
+    padding-left:var(--s-4);
+    border-left:2px solid var(--accent);
+    font-family:var(--voice);
+    font-size:clamp(1.25rem,2.4vw,1.6rem);
+    line-height:1.55; color:var(--ink);
+  }
+
+  /* ── Perspective ── */
+  .principles{
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:var(--s-8) var(--s-8); margin-top:var(--s-12);
+  }
+  .principle{padding-top:var(--s-4); border-top:1px solid var(--accent)}
+  .principle .p-label{
+    font-family:var(--structure); font-weight:600;
+    font-size:1.05rem; letter-spacing:.01em; color:var(--accent);
+    margin-bottom:var(--s-3);
+  }
+  .principle p{font-size:1.08rem; line-height:1.75; color:var(--ink-soft)}
+  .creed{
+    margin-top:var(--s-16); padding-top:var(--s-8);
+    border-top:1px solid var(--line);
+    font-family:var(--structure); font-weight:500;
+    font-size:clamp(1.3rem,2.8vw,1.9rem); line-height:1.45;
+    letter-spacing:-.01em;
+  }
+  @media (max-width:720px){ .principles{grid-template-columns:1fr; gap:var(--s-6)} }
+
+  /* ── About ── */
+  .about-grid{
+    display:grid; grid-template-columns:1.5fr 1fr;
+    gap:var(--s-12); margin-top:var(--s-12); align-items:start;
+  }
+  .questions{
+    margin:var(--s-6) 0; padding-left:var(--s-4);
+    border-left:2px solid var(--line);
+    font-family:var(--voice); font-style:italic;
+    font-size:clamp(1.1rem,2vw,1.3rem); line-height:1.7; color:var(--ink);
+  }
+  .keywords{
+    list-style:none; display:flex; flex-wrap:wrap;
+    gap:var(--s-3) var(--s-6); margin-top:var(--s-8);
+  }
+  .keywords li{
+    font-family:var(--structure); font-size:14px; font-weight:500;
+    letter-spacing:.01em; color:var(--ink-soft);
+    display:flex; align-items:center; gap:10px;
+  }
+  .keywords li::before{content:""; width:6px; height:6px; background:var(--accent); flex:none}
+  .portrait{
+    aspect-ratio:4/5; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    background:var(--paper-raised); position:sticky; top:120px;
+  }
+  .portrait span{
+    font-family:var(--structure); font-size:12px; font-weight:500;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint);
+  }
+  @media (max-width:860px){
+    .about-grid{grid-template-columns:1fr; gap:var(--s-8)}
+    .portrait{position:static; max-width:320px; order:-1}
+  }
+
+  /* ── Writing ── */
+  .writing-feature{margin-top:var(--s-12); max-width:48rem}
+  .card{
+    border:1px solid var(--line); border-radius:0;
+    padding:var(--s-8); display:flex; flex-direction:column;
+  }
+  .card .c-kicker{
+    font-family:var(--structure); font-size:12px; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint);
+    margin-bottom:var(--s-3);
+  }
+  .card h3{
+    font-family:var(--voice); font-weight:400;
+    font-size:1.35rem; line-height:1.4; margin-bottom:var(--s-3);
+  }
+  .card p{font-size:1rem; line-height:1.7; color:var(--ink-soft); flex:1}
+  .card a{
+    font-family:var(--structure); font-size:14px; font-weight:500;
+    color:var(--accent); text-decoration:none; margin-top:var(--s-4);
+    transition:color .3s ease;
+  }
+  .card a:hover{color:var(--accent-hover)}
+  .read-all{
+    display:inline-block; margin-top:var(--s-6);
+    font-family:var(--structure); font-size:14px; font-weight:500;
+    letter-spacing:.01em; color:var(--accent); text-decoration:none;
+    transition:color .3s ease;
+  }
+  .read-all:hover{color:var(--accent-hover)}
+
+  /* ── Contact ── */
+  .cta-row{display:flex; flex-wrap:wrap; gap:var(--s-6); margin-top:var(--s-8)}
+  .cta{
+    font-family:var(--structure); font-size:clamp(1.1rem,2vw,1.35rem);
+    font-weight:500; color:var(--accent); text-decoration:none;
+    padding-bottom:4px;
+    background-image:linear-gradient(var(--accent),var(--accent));
+    background-size:100% 1px; background-repeat:no-repeat; background-position:0 100%;
+    transition:color .35s ease, background-size .45s ease;
+  }
+  .cta:hover,.cta:focus-visible{color:var(--accent-hover); background-size:100% 2px}
+
+  /* ── Footer ── */
+  footer{
+    padding:var(--s-12) var(--page-x) var(--s-8); text-align:center;
+    font-family:var(--structure); font-size:13px; letter-spacing:.04em;
+    color:var(--ink-faint); border-top:1px solid var(--line);
+  }
+  footer .fw{letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); font-weight:600}
+  footer .tagline{
+    font-family:var(--voice); font-style:italic; font-size:15px;
+    color:var(--ink-faint); margin-bottom:var(--s-4); letter-spacing:.01em;
+  }
+
+  /* ── Motion ── rise & fade */
+  .rise{opacity:0; transform:translateY(14px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1)}
+  .rise.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion:reduce){ .rise{opacity:1; transform:none; transition:none} }
+
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:4px; border-radius:2px}
+  ::selection{background:color-mix(in srgb,var(--accent) 18%,transparent)}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#top" class="wordmark">MesAile</a>
+  <div class="nav-links">
+    <a href="#perspective">Perspective</a>
+    <a href="#about">About Julia</a>
+    <a href="#writing" class="hide-sm">Writing</a>
+    <a href="#contact" class="door">Contact</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ══ Section 1 · Hero ══ -->
+  <section class="hero">
+    <div class="wrap-wide">
+      <div class="brandline rise">
+        <span class="bm">MesAile</span>
+        <span class="by">by Julia Shin</span>
+      </div>
+
+      <h1 class="hero-lede rise">
+        <span>Identity<b>.</b></span>
+        <span>Strategy<b>.</b></span>
+        <span>Taste<b>.</b></span>
+      </h1>
+
+      <p class="body soft hero-sub rise">
+        AI가 평균을 빠르게 만드는 시대,<br>
+        사람을 구분하는 것은 결국<br>
+        자신만의 관점과 선택입니다.
+      </p>
+
+      <p class="body hero-desc rise">
+        MesAile는 이미지에서 시작해<br>
+        정체성, 미감, 전략과 기술을 함께 바라보는<br>
+        Julia Shin의 브랜드이자 관점의 아카이브입니다.
+      </p>
+
+      <a href="#perspective" class="hero-link rise">Explore the perspective ↓</a>
+    </div>
+  </section>
+
+  <!-- ══ Section 2 · Why MesAile ══ -->
+  <section id="why">
+    <div class="wrap">
+      <p class="eyebrow rise">Why MesAile</p>
+      <h2 class="title rise">이미지에서 시작했지만,<br>이미지만을 보지는 않았습니다.</h2>
+
+      <p class="body rise" style="margin-top:var(--s-8)">
+        MesAile는 2022년 이미지 컨설팅으로 시작했습니다.</p>
+      <p class="body rise soft">
+        당시에도 관심의 중심은 단순한 스타일링이 아니었습니다.<br>
+        한 사람이 어떤 목표를 가지고 있는지,<br>
+        어떤 사람으로 기억되고 싶은지,<br>
+        커리어와 삶의 방향이 어떻게 외부에 표현되는지를 함께 보았습니다.</p>
+      <p class="body rise soft">
+        이후 Julia는 핀테크, 글로벌 비즈니스, AI와 기술의 현장에서 일했습니다.<br>
+        그 시간을 지나며 이미지라고 불렀던 것이 사실은 더 넓은 정체성과 방향의 문제였다는 것을 알게 되었습니다.</p>
+      <p class="body rise">
+        그래서 MesAile를 과거로 되돌리는 것이 아니라,<br>
+        더 넓은 언어로 다시 엽니다.</p>
+
+      <p class="emphasis rise">
+        MesAile = 나의 날개.<br>
+        나만의 방향으로 다시 펼쳐가는 이름입니다.</p>
+    </div>
+  </section>
+
+  <!-- ══ Section 3 · Perspective ══ -->
+  <section id="perspective">
+    <div class="wrap-wide">
+      <p class="eyebrow rise">Perspective</p>
+      <h2 class="title rise">평균이 쉬워질수록,<br>고유한 판단은 더 귀해집니다.</h2>
+
+      <div class="principles">
+        <div class="principle rise">
+          <div class="p-label">Substance</div>
+          <p>실력과 내용은 오래 남는 가치를 만듭니다.</p>
+        </div>
+        <div class="principle rise">
+          <div class="p-label">Presence</div>
+          <p>좋은 내용도 전달되지 않으면 기회가 되기 어렵습니다.
+          존재감은 허영이 아니라, 가치가 세상과 만나는 방식입니다.</p>
+        </div>
+        <div class="principle rise">
+          <div class="p-label">Taste</div>
+          <p>취향은 비싼 물건의 목록이 아닙니다.
+          무엇을 선택하고, 무엇을 덜어내며, 무엇을 연결하는지에 관한 판단입니다.</p>
+        </div>
+        <div class="principle rise">
+          <div class="p-label">Identity</div>
+          <p>정체성은 하나의 직업명이나 스타일로 완성되지 않습니다.
+          경험, 태도, 커리어, 언어와 선택이 축적되어 만들어집니다.</p>
+        </div>
+      </div>
+
+      <p class="creed rise">
+        Substance creates value.<br>
+        Presence creates opportunity.</p>
+    </div>
+  </section>
+
+  <!-- ══ Section 4 · About Julia ══ -->
+  <section id="about">
+    <div class="wrap-wide">
+      <p class="eyebrow rise">About Julia</p>
+      <h2 class="title rise">미감과 전략,<br>사람과 기술의 언어를 연결합니다.</h2>
+
+      <div class="about-grid">
+        <div>
+          <p class="body rise">
+            Julia Shin은 이미지 컨설팅 브랜드 MesAile를 창업해 전문직과 배우 등 17명의 고객을 컨설팅했습니다.</p>
+          <p class="body rise soft">
+            이후 글로벌 비즈니스, 핀테크, 컴퓨터 비전 AI, LLM과 Agent 분야에서 PM·PO·전략 업무를 경험했습니다.</p>
+          <p class="body rise soft">
+            글로벌 패션 현장에서 사람의 언어를, 백엔드 개발과 AI 제품 기획을 통해 기술의 구조를 배웠습니다.</p>
+          <p class="body rise">그러나 그 경험들의 중심에는 늘 같은 질문이 있었습니다.</p>
+
+          <p class="questions rise">
+            사람과 기술, 비즈니스는 어떻게 서로의 언어를 이해하는가.<br>
+            실력과 가치가 어떻게 신뢰와 기회로 전달되는가.<br>
+            한 사람의 여러 면을 어떻게 하나의 방향으로 연결할 수 있는가.</p>
+
+          <p class="body rise">
+            Julia는 패션만을 말하는 사람도, 기술만을 말하는 사람도 아닙니다.<br>
+            두 세계 사이를 번역하고 구조화하는 사람입니다.</p>
+
+          <ul class="keywords rise">
+            <li>AI &amp; Technology</li>
+            <li>Business &amp; Strategy</li>
+            <li>Identity &amp; Taste</li>
+            <li>Global Communication</li>
+            <li>Writing &amp; Observation</li>
+          </ul>
+        </div>
+
+        <!-- 실제 Julia 사진 자리: 아래 프레임 안 <img>로 교체 -->
+        <div class="portrait rise">
+          <!-- <img src="julia.jpg" alt="Julia Shin" style="width:100%;height:100%;object-fit:cover;"> -->
+          <span>Portrait</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Section 5 · Writing ══ -->
+  <section id="writing">
+    <div class="wrap-wide">
+      <p class="eyebrow rise">Writing</p>
+      <h2 class="title rise">MesAile는 생각이 축적되는 곳입니다.</h2>
+
+      <div style="max-width:var(--measure)">
+        <p class="body rise" style="margin-top:var(--s-6)">
+          블로그에는 성공 공식을 반복하기보다,<br>
+          Julia가 직접 경험하고 관찰한 것을 기록합니다.</p>
+        <p class="body rise soft">
+          AI 시대의 미감과 희소성,<br>
+          사람이 신뢰를 만드는 방식,<br>
+          커리어와 정체성,<br>
+          취향과 사회적 존재감,<br>
+          실력과 레버리지 사이의 관계를 다룹니다.</p>
+        <p class="body rise">
+          AI는 리서치와 구조화를 돕는 도구로 사용합니다.<br>
+          그러나 관점과 문장은 Julia가 직접 생각하고 씁니다.</p>
+      </div>
+
+      <div class="writing-feature">
+        <article class="card rise">
+          <div class="c-kicker">Essay</div>
+          <h3>MesAile 미즈엘르의 부활?<br>AI, 감도, 미감</h3>
+          <p>평균적인 성공 공식이 넘치는 시대에 왜 다시 개인의 미감과 맞춤형 판단이 중요해지는지에 관한 글.</p>
+          <!-- 실제 'MesAile 미즈엘르의 부활?' 글 URL로 교체 -->
+          <a data-link="post-revival" href="#">Read →</a>
+        </article>
+        <!-- 실제 네이버 블로그 메인 URL로 교체 -->
+        <a data-link="blog-main" href="#" class="read-all rise">Read all writing →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Section 6 · Contact ══ -->
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow rise">Contact</p>
+      <h2 class="title rise">관점이 닿았다면,<br>그다음 이야기를 시작할 수 있습니다.</h2>
+
+      <p class="body rise soft" style="margin-top:var(--s-6)">
+        글, 프로젝트, 협업 또는 MesAile에 관한 이야기는<br>
+        아래 채널을 통해 남겨주세요.</p>
+
+      <div class="cta-row rise">
+        <!-- 실제 네이버 블로그 메인 URL로 교체 -->
+        <a class="cta" data-link="blog-main" href="#">Read the blog</a>
+        <!-- 실제 이메일 주소로 교체 -->
+        <a class="cta" data-link="email" href="mailto:hello@mesaile.example">Contact Julia</a>
+      </div>
+      <!-- Instagram 링크가 필요하면 아래 주석을 사용: 실제 Instagram URL로 교체
+      <a class="cta" data-link="instagram" href="#">Instagram</a> -->
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="tagline">Find Your Feather.</div>
+  <span class="fw">MesAile</span> &nbsp;·&nbsp; Julia Shin
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('settled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const risers = document.querySelectorAll('.rise');
+  if(reduce){
+    risers.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    risers.forEach(el => io.observe(el));
+  }
+</script>
+</body>
+</html>
