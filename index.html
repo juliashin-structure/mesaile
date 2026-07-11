@@ -8,21 +8,18 @@
 <meta property="og:title" content="MesAile — Identity, Strategy & Taste by Julia Shin">
 <meta property="og:description" content="MesAile는 이미지에서 시작해 정체성, 미감, 전략과 기술을 함께 바라보는 Julia Shin의 브랜드이자 관점의 아카이브입니다.">
 <meta property="og:type" content="website">
+<link rel="canonical" href="https://juliashin-structure.github.io/mesaile/">
+<meta property="og:url" content="https://juliashin-structure.github.io/mesaile/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MesAile — Identity, Strategy & Taste by Julia Shin">
+<meta name="twitter:description" content="MesAile는 이미지에서 시작해 정체성, 미감, 전략과 기술을 함께 바라보는 Julia Shin의 브랜드이자 관점의 아카이브입니다.">
+<!-- OG/Twitter 이미지: assets/og-mesaile.jpg (배포 시 아래 주소에서 로드) -->
+<meta name="twitter:image" content="https://juliashin-structure.github.io/mesaile/assets/og-mesaile.jpg">
 <meta name="theme-color" content="#FAF8F3">
-<!-- 실제 OG 이미지 URL로 교체 -->
-<meta property="og:image" content="">
-<!-- 실제 favicon 파일 경로로 교체 -->
-<link rel="icon" href="favicon.ico">
-
-<!-- ════════ 교체할 실제 링크/파일 목록 ════════
-  · 네이버 블로그 메인 URL            → a[data-link="blog-main"]  (Read all writing / Read the blog)
-  · 'MesAile 미즈엘르의 부활?' 글 URL → a[data-link="post-revival"]  (Read →)
-  · Julia 이메일 주소                 → a[data-link="email"]  (Contact Julia)
-  · Julia 사진 파일 경로             → .portrait 내부 <img>
-  · Instagram URL                    → a[data-link="instagram"]
-  · Open Graph 이미지 URL            → meta[property="og:image"]
-  · Favicon 파일 경로                → link[rel="icon"]
-════════════════════════════════════════════ -->
+<!-- OG 이미지: assets/og-mesaile.jpg (배포 시 아래 주소에서 로드) -->
+<meta property="og:image" content="https://juliashin-structure.github.io/mesaile/assets/og-mesaile.jpg">
+<!-- favicon: assets/favicon.png (512×512, 네이비 M) -->
+<link rel="icon" type="image/png" href="assets/favicon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -201,10 +198,23 @@
     display:flex; align-items:center; gap:10px;
   }
   .keywords li::before{content:""; width:6px; height:6px; background:var(--accent); flex:none}
+  .experience{margin-top:var(--s-8)}
+  .experience .exp-label{
+    font-family:var(--structure); font-size:12px; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint);
+    padding-bottom:var(--s-3); border-bottom:1px solid var(--line);
+  }
+  .experience ul{list-style:none; margin-top:var(--s-3)}
+  .experience li{
+    font-family:var(--structure); font-size:14px; font-weight:500;
+    letter-spacing:.01em; color:var(--ink-soft); line-height:1.6;
+    padding:6px 0; border-bottom:1px solid var(--line);
+  }
   .portrait{
     aspect-ratio:4/5; border:1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
     background:var(--paper-raised); position:sticky; top:120px;
+    overflow:hidden;
   }
   .portrait span{
     font-family:var(--structure); font-size:12px; font-weight:500;
@@ -283,8 +293,9 @@
 <nav id="nav">
   <a href="#top" class="wordmark">MesAile</a>
   <div class="nav-links">
+    <a href="#why">Why MesAile</a>
     <a href="#perspective">Perspective</a>
-    <a href="#about">About Julia</a>
+    <a href="#about" class="hide-sm">About Julia</a>
     <a href="#writing" class="hide-sm">Writing</a>
     <a href="#contact" class="door">Contact</a>
   </div>
@@ -318,7 +329,7 @@
         Julia Shin의 브랜드이자 관점의 아카이브입니다.
       </p>
 
-      <a href="#perspective" class="hero-link rise">Explore the perspective ↓</a>
+      <a href="#why" class="hero-link rise">Discover MesAile ↓</a>
     </div>
   </section>
 
@@ -395,7 +406,7 @@
           <p class="body rise soft">
             이후 글로벌 비즈니스, 핀테크, 컴퓨터 비전 AI, LLM과 Agent 분야에서 PM·PO·전략 업무를 경험했습니다.</p>
           <p class="body rise soft">
-            글로벌 패션 현장에서 사람의 언어를, 백엔드 개발과 AI 제품 기획을 통해 기술의 구조를 배웠습니다.</p>
+            글로벌 패션 현장에서 통역과 커뮤니케이션을 경험했고, 백엔드 개발과 AI 제품 기획을 통해 기술의 구조를 익혔습니다.</p>
           <p class="body rise">그러나 그 경험들의 중심에는 늘 같은 질문이 있었습니다.</p>
 
           <p class="questions rise">
@@ -414,12 +425,33 @@
             <li>Global Communication</li>
             <li>Writing &amp; Observation</li>
           </ul>
+
+          <div class="experience rise">
+            <div class="exp-label">Selected Experience</div>
+            <ul>
+              <li>MesAile Founder · 17 Clients</li>
+              <li>Global Business &amp; FinTech</li>
+              <li>Computer Vision AI</li>
+              <li>LLM &amp; Agent Product</li>
+            </ul>
+          </div>
         </div>
 
-        <!-- 실제 Julia 사진 자리: 아래 프레임 안 <img>로 교체 -->
         <div class="portrait rise">
-          <!-- <img src="julia.jpg" alt="Julia Shin" style="width:100%;height:100%;object-fit:cover;"> -->
-          <span>Portrait</span>
+          <img
+            src="assets/julia.jpg"
+            alt="Julia Shin"
+            width="1000"
+            height="1332"
+            loading="lazy"
+            style="
+              width:100%;
+              height:100%;
+              object-fit:cover;
+              object-position:center 42%;
+              display:block;
+            "
+          >
         </div>
       </div>
     </div>
@@ -442,8 +474,7 @@
           취향과 사회적 존재감,<br>
           실력과 레버리지 사이의 관계를 다룹니다.</p>
         <p class="body rise">
-          AI는 리서치와 구조화를 돕는 도구로 사용합니다.<br>
-          그러나 관점과 문장은 Julia가 직접 생각하고 씁니다.</p>
+          모든 글은 Julia의 직접적인 경험과 관찰에서 시작합니다.</p>
       </div>
 
       <div class="writing-feature">
@@ -451,11 +482,9 @@
           <div class="c-kicker">Essay</div>
           <h3>MesAile 미즈엘르의 부활?<br>AI, 감도, 미감</h3>
           <p>평균적인 성공 공식이 넘치는 시대에 왜 다시 개인의 미감과 맞춤형 판단이 중요해지는지에 관한 글.</p>
-          <!-- 실제 'MesAile 미즈엘르의 부활?' 글 URL로 교체 -->
-          <a data-link="post-revival" href="#">Read →</a>
+          <a data-link="post-revival" href="https://blog.naver.com/challenge284/224328819616" target="_blank" rel="noopener noreferrer">Read →</a>
         </article>
-        <!-- 실제 네이버 블로그 메인 URL로 교체 -->
-        <a data-link="blog-main" href="#" class="read-all rise">Read all writing →</a>
+        <a data-link="blog-main" href="https://blog.naver.com/challenge284" target="_blank" rel="noopener noreferrer" class="read-all rise">Read all writing →</a>
       </div>
     </div>
   </section>
@@ -471,13 +500,10 @@
         아래 채널을 통해 남겨주세요.</p>
 
       <div class="cta-row rise">
-        <!-- 실제 네이버 블로그 메인 URL로 교체 -->
-        <a class="cta" data-link="blog-main" href="#">Read the blog</a>
-        <!-- 실제 이메일 주소로 교체 -->
-        <a class="cta" data-link="email" href="mailto:hello@mesaile.example">Contact Julia</a>
+        <a class="cta" data-link="blog-main" href="https://blog.naver.com/challenge284" target="_blank" rel="noopener noreferrer">Read the blog</a>
+        <a class="cta" data-link="instagram" href="https://www.instagram.com/mesaile.magazine/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="cta" data-link="email" href="mailto:mesaile.magazine@gmail.com">Contact Julia</a>
       </div>
-      <!-- Instagram 링크가 필요하면 아래 주석을 사용: 실제 Instagram URL로 교체
-      <a class="cta" data-link="instagram" href="#">Instagram</a> -->
     </div>
   </section>
 
